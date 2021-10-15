@@ -1,0 +1,45 @@
+<template>
+    <div class="slds-m-around_medium">
+        <lightning-card variant="Narrow" title="Accounts&Orders" icon-name="standard:delegated_account">
+            <div class="slds-m-around_x-small">
+                <c-progress-indicator-component 
+                    current-step={currentStep} 
+                    step-values={stepValues}
+                >
+                </c-progress-indicator-component>
+
+                <c-account-picklist-component 
+                    if:true={showAccount} 
+                    account-list={accountList}
+                    account-id={accountId}
+                    change-account-id={changeAccountId}
+                    onnext={handleNext}
+                >
+                </c-account-picklist-component>
+
+                <c-order-picklist-component 
+                    if:true={showOrder} 
+                    account-id={accountId} 
+                    onnext={handleNext}
+                    order-list={orderList}
+                    order-id={orderId}
+                    onprevious={handlePrevious} 
+                    change-order-id={changeOrderId}
+                >
+                </c-order-picklist-component>
+
+                <c-layout-info-component 
+                    if:true={showInfo} 
+                    account-list={accountList} 
+                    order-list={orderList}
+                    account-id={accountId}
+                    order-id={orderId}
+                    onprevious={handlePrevious} 
+                    onrestart={handleRestart}
+                >
+                </c-layout-info-component>
+
+            </div>
+        </lightning-card>
+    </div> 
+</template>

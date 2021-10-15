@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-m-around_medium">
+        <lightning-combobox 
+            name="orders" 
+            label="Before the payment deadline:" 
+            value={orderId} 
+            placeholder="Select Order" 
+            options={options}
+            onchange={changeOrderId}
+        >
+        </lightning-combobox>
+        <div class="slds-m-around_medium">
+            <lightning-button 
+                icon-name="utility:reply" 
+                icon-position="left" 
+                variant="base" 
+                label="Previous"
+                onclick={handlePrevious}
+            >
+            </lightning-button>
+            &nbsp; &nbsp;
+            <lightning-button 
+                icon-name="utility:jump_to_right" 
+                icon-position="right" 
+                variant="inverse" 
+                label="Next"
+                title="Next" 
+                onclick={handleNext}
+            >
+            </lightning-button>
+        </div>
+    </div>
+</template>

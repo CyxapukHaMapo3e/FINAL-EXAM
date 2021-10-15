@@ -1,0 +1,14 @@
+lightning-card{
+    /*BUTTON*/
+    --sds-c-button-inverse-color-background: #014486;   
+    --sds-c-button-inverse-color-border: #45c65a;
+    --sds-c-button-inverse-color-background-hover:  #45c65a;
+    --sds-c-button-inverse-color-border-hover: #014486;   
+    --sds-c-button-inverse-text-color: #45c65a;
+    --sds-c-button-inverse-text-color-active: #014486;
+    --sds-c-button-radius-border: 0.74rem;
+    /*CARD*/
+    --sds-c-card-radius-border: 0.50rem;
+    --sds-c-card-color-border: #002142;
+}
+

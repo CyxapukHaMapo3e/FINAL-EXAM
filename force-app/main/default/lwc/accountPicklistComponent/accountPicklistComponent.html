@@ -1,0 +1,25 @@
+<template>
+    <div class="slds-m-around_medium">
+
+        <lightning-combobox 
+            name="accounts" 
+            label="Account:"  
+            value={accountId}
+            placeholder="Select Account" 
+            options={options} 
+            onchange={changeAccountId}>
+        </lightning-combobox>
+
+        <div class="slds-m-around_medium">
+            <lightning-button 
+                variant="inverse" 
+                icon-name="utility:jump_to_right" 
+                icon-position="right" 
+                label="Next"
+                title="Next" 
+                onclick={handleNext}>
+            </lightning-button>
+            
+        </div>
+    </div>
+</template>
