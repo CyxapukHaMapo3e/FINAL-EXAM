@@ -2,7 +2,7 @@ import { LightningElement, api } from 'lwc';
 
 export default class AccountPicklistComponent extends LightningElement {
     
-    @api accountList;
+    @api accountList = [];
     error;
 
 
