@@ -4,25 +4,25 @@
             <lightning-layout>
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
-                        <h2><lightning-formatted-text value="Account Name:">{listinfo}</lightning-formatted-text></h2>
+                        <h2><lightning-formatted-text class="slds-text-heading_small" value="Account Name:">{listinfo}</lightning-formatted-text></h2>
                         <p><a target="_blank" href={accountURL}>{accountName}</a></p>
                     </div>
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
-                        <h2><lightning-formatted-text value="Order Name:"></lightning-formatted-text></h2>
+                        <h2><lightning-formatted-text class="slds-text-heading_small" value="Order Name:"></lightning-formatted-text></h2>
                         <p><a target="_blank" href={orderURL}>{orderName}</a></p>
                     </div>
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
-                        <h2><lightning-formatted-text value="Payment Due Date:"></lightning-formatted-text></h2>
+                        <h2><lightning-formatted-text class="slds-text-heading_small" value="Payment Due Date:"></lightning-formatted-text></h2>
                         <p><lightning-formatted-date-time value={paymentDueDate}></lightning-formatted-date-time></p>
                     </div>
                 </lightning-layout-item>
                 <lightning-layout-item flexibility="auto" padding="around-small">
                     <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
-                        <h2><lightning-formatted-text value="Total Amount:"></lightning-formatted-text></h2>
+                        <h2><lightning-formatted-text class="slds-text-heading_small" value="Total Amount:"></lightning-formatted-text></h2>
                         <p><lightning-formatted-number value={totalAmount}></lightning-formatted-number></p>
                     </div>
                 </lightning-layout-item>

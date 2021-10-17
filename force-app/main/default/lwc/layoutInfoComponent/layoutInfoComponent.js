@@ -37,12 +37,6 @@ export default class LayoutInfoComponent extends LightningElement {
          }
     }
 
-    handleConsole(){
- 
-        console.log(this.accountName, 'dsaadsaccountName') 
-    }
-
-
     handlePrevious(event) {
         event.preventDefault();
         const eventNext = new CustomEvent('previous', {
