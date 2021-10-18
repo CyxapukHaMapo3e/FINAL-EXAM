@@ -46,6 +46,16 @@
                 onclick={handleRestart}
             >
             </lightning-button>
+
+            <lightning-button 
+                icon-name="utility:email" 
+                label="Send Email" 
+                disabled={disableButton}
+                icon-position="center" 
+                class="slds-float_right slds-button_outline-brand" 
+                onclick={handleEmail}
+            >
+            </lightning-button>
         </div>
     </div>  
 </template>

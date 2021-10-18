@@ -9,6 +9,21 @@ export default class AccountPicklistComponent extends LightningElement {
     @api accountId;
     @api changeAccountId;
 
+    filterAccountString = '';
+
+
+
+    filterAccounts(event){
+        this.filterAccountString = event.target.value;
+    }
+
+    get filteredAccountList(){
+        if(this.filterAccountString === ''){
+            return this.accountList;
+        }
+        return this.accountList.filter(el => el.Name.includes(this.filterAccountString))
+    }
+
 
     get options() {
         // let choices = this.accountList.map(item => {
@@ -18,7 +33,7 @@ export default class AccountPicklistComponent extends LightningElement {
         //     };
         // });
         let choices = []
-        for (let item of this.accountList) {
+        for (let item of this.filteredAccountList) {
             if (item.Orders__r !== undefined) {
                 choices.push({
                     label: item.Name,

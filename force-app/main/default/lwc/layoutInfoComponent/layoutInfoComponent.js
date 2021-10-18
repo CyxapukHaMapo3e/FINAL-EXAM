@@ -1,40 +1,56 @@
-import { LightningElement, api} from 'lwc';
+import { LightningElement, api } from 'lwc';
+import sendEmailWithOrderInfo from '@salesforce/apex/SendEmailController.sendEmailWithOrderInfo';
+import Id from '@salesforce/user/Id';
+
 
 export default class LayoutInfoComponent extends LightningElement {
 
     @api orderId;
     @api accountId;
-    
+
     @api accountList;
     @api orderList;
 
 
+    error;
+
+
     baseUrl = 'https://' + location.host + '/';
 
-    orderName; 
+    orderName;
     paymentDueDate;
     totalAmount;
     accountName;
 
     accountURL;
-    orderURL
+    orderURL;
 
-    get listinfo(){
-         for(let item of this.accountList){
-            if(item.Id === this.accountId){
+    disable;
+
+    get disableButton(){
+        if(this.disable===true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    get listinfo() {
+        for (let item of this.accountList) {
+            if (item.Id === this.accountId) {
                 this.accountName = item.Name;
                 this.accountURL = this.baseUrl + this.accountId;
-             }
-         }
-        
-         for(let item of this.orderList){
-             if(item.Id === this.orderId){
-                 this.orderName = item.Name;
-                 this.orderURL = this.baseUrl + this.orderId;   
-                 this.paymentDueDate = item.Payment_Due_date__c;
-                 this.totalAmount = item.Total_Amount__c;
-             }
-         }
+            }
+        }
+
+        for (let item of this.orderList) {
+            if (item.Id === this.orderId) {
+                this.orderName = item.Name;
+                this.orderURL = this.baseUrl + this.orderId;
+                this.paymentDueDate = item.Payment_Due_date__c;
+                this.totalAmount = item.Total_Amount__c;
+            }
+        }
     }
 
     handlePrevious(event) {
@@ -44,7 +60,7 @@ export default class LayoutInfoComponent extends LightningElement {
                 showOrder: true,
                 showAccount: false,
                 showInfo: false,
-            }     
+            }
         });
         this.dispatchEvent(eventNext);
     }
@@ -59,6 +75,28 @@ export default class LayoutInfoComponent extends LightningElement {
             }
         });
         this.dispatchEvent(eventNext);
+    }
+
+    handleEmail() {
+        const sendMessage = confirm('Are you sure you want to send an email?');
+        if(sendMessage){
+        const subject = 'The information about your order.';
+        const body =
+            `
+            <h1>${this.accountName} thank you for your order!</h1>
+            <p>Your ${this.orderName} has been received.</p>
+            <p>Payment Due date : ${this.paymentDueDate}</p>
+            <p>Total Amount: ${this.totalAmount} $</p>
+            `
+        const emailTemplate = {body: body, subject: subject, userId: Id}  
+        sendEmailWithOrderInfo(emailTemplate).then( () => {
+            this.disable = true;
+            disabledButton();
+        }).catch( error => {
+           console.error('Error: \n ', error);
+           this.error = error;
+        });
+        }
     }
 
 }

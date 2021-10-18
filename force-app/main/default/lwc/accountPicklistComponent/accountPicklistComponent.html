@@ -1,8 +1,14 @@
 <template>
     <div class="slds-m-around_medium">
 
+        <lightning-input  
+            label="Enter an account"
+            onchange={filterAccounts}
+        >
+
+        </lightning-input>
+
         <lightning-combobox 
-            name="accounts" 
             label="Account:"  
             value={accountId}
             placeholder="Select Account" 
@@ -15,10 +21,10 @@
                 variant="inverse" 
                 icon-name="utility:jump_to_right" 
                 icon-position="right" 
-                label="Next"
-                title="Next" 
+                label="Next" 
                 onclick={handleNext}>
             </lightning-button>            
         </div>
+
     </div>
 </template>
