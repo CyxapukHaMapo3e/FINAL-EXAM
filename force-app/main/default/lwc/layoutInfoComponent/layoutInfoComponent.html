@@ -2,60 +2,60 @@
     <div class="slds-m-around_x-small">
         <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
             <lightning-layout>
-                <lightning-layout-item flexibility="auto" padding="around-small">
-                    <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
-                        <h2><lightning-formatted-text class="slds-text-heading_small" value="Account Name:">{listinfo}</lightning-formatted-text></h2>
-                        <p><a target="_blank" href={accountURL}>{accountName}</a></p>
-                    </div>
-                </lightning-layout-item>
-                <lightning-layout-item flexibility="auto" padding="around-small">
-                    <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
-                        <h2><lightning-formatted-text class="slds-text-heading_small" value="Order Name:"></lightning-formatted-text></h2>
-                        <p><a target="_blank" href={orderURL}>{orderName}</a></p>
-                    </div>
-                </lightning-layout-item>
-                <lightning-layout-item flexibility="auto" padding="around-small">
-                    <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
-                        <h2><lightning-formatted-text class="slds-text-heading_small" value="Payment Due Date:"></lightning-formatted-text></h2>
-                        <p><lightning-formatted-date-time value={paymentDueDate}></lightning-formatted-date-time></p>
-                    </div>
-                </lightning-layout-item>
-                <lightning-layout-item flexibility="auto" padding="around-small">
-                    <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
-                        <h2><lightning-formatted-text class="slds-text-heading_small" value="Total Amount:"></lightning-formatted-text></h2>
-                        <p><lightning-formatted-number value={totalAmount}></lightning-formatted-number></p>
-                    </div>
-                </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small">
+                        <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                            <h2>
+                                <lightning-formatted-text class="slds-text-heading_small" value="Account Name:">
+                                </lightning-formatted-text>
+                            </h2>
+                            <p><a target="_blank" href={accountURL}>{infoList}{accountName}</a></p>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small">
+                        <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                            <h2>
+                                <lightning-formatted-text class="slds-text-heading_small" value="Order Name:">
+                                </lightning-formatted-text>
+                            </h2>
+                            <p><a target="_blank" href={orderURL}>{orderName}</a></p>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small">
+                        <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                            <h2>
+                                <lightning-formatted-text class="slds-text-heading_small" value="Payment Due Date:">
+                                </lightning-formatted-text>
+                            </h2>
+                            <p>
+                                <lightning-formatted-date-time value={paymentDueDate}></lightning-formatted-date-time>
+                            </p>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="auto" padding="around-small">
+                        <div class="custom-box slds-box slds-p-around_medium slds-text-align_center">
+                            <h2>
+                                <lightning-formatted-text class="slds-text-heading_small" value="Total Amount:">
+                                </lightning-formatted-text>
+                            </h2>
+                            <p>
+                                <lightning-formatted-number value={totalAmount}></lightning-formatted-number>
+                            </p>
+                        </div>
+                    </lightning-layout-item>
             </lightning-layout>
         </div>
         <div class="slds-m-around_xx-small">
-            <lightning-button 
-                icon-name="utility:reply" 
-                label="Previous"
-                icon-position="left" 
-                variant="base"
-                onclick={handlePrevious}
-            >
+            <lightning-button icon-name="utility:reply" label="Previous" icon-position="left" variant="base"
+                onclick={handlePrevious}>
             </lightning-button>
             &nbsp; &nbsp;
-            <lightning-button 
-                icon-name="utility:reply_all" 
-                label="Restart" 
-                icon-position="center" 
-                variant="base" 
-                onclick={handleRestart}
-            >
+            <lightning-button icon-name="utility:reply_all" label="Restart" icon-position="center" variant="base"
+                onclick={handleRestart}>
             </lightning-button>
 
-            <lightning-button 
-                icon-name="utility:email" 
-                label="Send Email" 
-                disabled={disableButton}
-                icon-position="center" 
-                class="slds-float_right slds-button_outline-brand" 
-                onclick={handleEmail}
-            >
+            <lightning-button icon-name="utility:email" label="Send Email" disabled={disableButton}
+                icon-position="center" class="slds-float_right slds-button_outline-brand" onclick={handleEmail}>
             </lightning-button>
         </div>
-    </div>  
+    </div>
 </template>

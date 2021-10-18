@@ -9,19 +9,19 @@ export default class AccountPicklistComponent extends LightningElement {
     @api accountId;
     @api changeAccountId;
 
-    filterAccountString = '';
+    searchString = '';
 
 
 
-    filterAccounts(event){
-        this.filterAccountString = event.target.value;
+    changeAccountList(event){
+        this.searchString = event.target.value;
     }
 
     get filteredAccountList(){
-        if(this.filterAccountString === ''){
+        if(this.searchString === ''){
             return this.accountList;
         }
-        return this.accountList.filter(el => el.Name.includes(this.filterAccountString))
+        return this.accountList.filter(el => el.Name.includes(this.searchString))
     }
 
 

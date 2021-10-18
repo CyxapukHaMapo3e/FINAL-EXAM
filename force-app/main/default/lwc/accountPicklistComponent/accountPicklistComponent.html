@@ -1,30 +1,31 @@
-<template>
+<template>   
     <div class="slds-m-around_medium">
 
         <lightning-input  
-            label="Enter an account"
-            onchange={filterAccounts}
+            label="Find an account:"
+            onchange={changeAccountList}
         >
-
         </lightning-input>
 
         <lightning-combobox 
-            label="Account:"  
+            label="Selected account:"  
             value={accountId}
             placeholder="Select Account" 
             options={options} 
-            onchange={changeAccountId}>
+            onchange={changeAccountId}
+        >
         </lightning-combobox>
 
         <div class="slds-m-around_medium">
+            
             <lightning-button 
                 variant="inverse" 
                 icon-name="utility:jump_to_right" 
                 icon-position="right" 
                 label="Next" 
-                onclick={handleNext}>
+                onclick={handleNext}
+            >
             </lightning-button>            
         </div>
-
     </div>
 </template>
