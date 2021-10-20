@@ -25,15 +25,7 @@ export default class OrderPicklistComponent extends LightningElement {
                     days: days
                 })
              }
-         }
-
-        //  let choices = this.orderList.map(item => {
-        //      return {
-        //           label: item.Name,
-        //           value: item.Id
-        //      };
-        // });
-        
+         }     
         return choices.sort((firstEl, secondEl) => firstEl.days - secondEl.days);
     
     }

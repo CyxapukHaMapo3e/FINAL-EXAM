@@ -16,6 +16,6 @@ public with sharing class SendEmailController {
         }catch(Exception ex){
             throw new AuraHandledException(ex.getMessage());
         }
-
     }
+    
 }

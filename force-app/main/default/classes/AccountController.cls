@@ -2,17 +2,16 @@ public with sharing class AccountController {
     
 	@AuraEnabled(cacheable=true)
     public static List<Account> getAccounts(){
-       return [SELECT ID, Name, (SELECT ID, Name FROM Orders__r) FROM Account];    
+
+        List<Account> accountList = new List<Account>();
+
+        for(Account acc : [SELECT ID, Name, (SELECT ID FROM Orders__r) FROM Account]){ 
+            if(!(acc.Orders__r.isEmpty())){
+                accountList.add(acc);
+            }
+        }   
+        
+        return accountList;
     } 
 
-    @AuraEnabled(cacheable=true)
-    public static List<Account> findByName(String searchKey){
-        String name = '%'+searchKey +'%';
-        return [SELECT ID, Name
-                FROM Account
-                WHERE Name 
-                like:name
-                LIMIT 50];
-    }
-    
 }

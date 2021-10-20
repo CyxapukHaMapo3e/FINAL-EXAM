@@ -13,10 +13,6 @@ export default class AccountPicklistComponent extends LightningElement {
 
 
 
-    changeAccountList(event){
-        this.searchString = event.target.value;
-    }
-
     get filteredAccountList(){
         if(this.searchString === ''){
             return this.accountList;
@@ -26,22 +22,17 @@ export default class AccountPicklistComponent extends LightningElement {
 
 
     get options() {
-        // let choices = this.accountList.map(item => {
-        //     return {
-        //          label: item.Name,
-        //          value: item.Id
-        //     };
-        // });
-        let choices = []
-        for (let item of this.filteredAccountList) {
-            if (item.Orders__r !== undefined) {
-                choices.push({
-                    label: item.Name,
-                    value: item.Id
-                })
-            }
-        }
+        let choices = this.filteredAccountList.map(item => {
+             return {
+                  label: item.Name,
+                  value: item.Id
+             };
+        });
         return choices;
+    }
+
+    changeAccountList(event){
+        this.searchString = event.target.value;
     }
 
     handleNext(event){
