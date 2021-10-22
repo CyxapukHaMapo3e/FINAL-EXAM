@@ -9,27 +9,22 @@ public class OrderFactory {
         Integer currentNumOfAccount = 0;
         
         for(Integer i = 0; i < count; i++){
-
             Order__c newOrder = new Order__c();
-
             newOrder.Name = 'Order ' + (i+1);
             newOrder.Total_Amount__c = (Integer)(Math.random()*1000);
-            newOrder.Payment_Due_date__c = generateRandomDate();
-    
+            newOrder.Payment_Due_date__c = generateRandomDate();    
             if(currentNumOfAccount >= countOfAccounts){
               currentNumOfAccount = 0;  
             }
             newOrder.Account__c = accounts[0][currentNumOfAccount].ID;
-            currentNumOfAccount++;
-            
+            currentNumOfAccount++;            
             orders.add(newOrder);
-        }
-        
+        }        
         insert(orders);
     }
     
-    private static Date generateRandomDate(){
-        Date today = Date.today();
-        return today.addDays((Integer)(Math.random()*100));
+    @TestVisible private static Date generateRandomDate(){
+        Date todayDate = Date.today();
+        return todayDate.addDays((Integer)(Math.random()*100));
     }
 }

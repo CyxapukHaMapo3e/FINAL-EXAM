@@ -5,7 +5,6 @@ public with sharing class SendEmailController {
     public static void sendEmailWithOrderInfo(String body,  String subject, String userId){
 
         List<User> userList = [SELECT Email FROM User WHERE ID = :userId];
-
         try{
             Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
             String[] toAddresses = new String[]{userList[0].Email};
@@ -17,5 +16,7 @@ public with sharing class SendEmailController {
             throw new AuraHandledException(ex.getMessage());
         }
     }
+
+ 
     
 }

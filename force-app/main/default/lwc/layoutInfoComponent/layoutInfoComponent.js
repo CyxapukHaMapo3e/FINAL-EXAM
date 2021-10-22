@@ -1,7 +1,6 @@
 import { LightningElement, api } from 'lwc';
 import sendEmailWithOrderInfo from '@salesforce/apex/SendEmailController.sendEmailWithOrderInfo';
 import Id from '@salesforce/user/Id';
-import JetBiLogo from '@salesforce/resourceUrl/JetBiLogo'
 
 
 export default class LayoutInfoComponent extends LightningElement {
@@ -12,11 +11,9 @@ export default class LayoutInfoComponent extends LightningElement {
     @api accountList;
     @api orderList;
 
-    logo = JetBiLogo;
 
 
     error;
-
 
     baseUrl = 'https://' + location.host + '/';
 
@@ -38,7 +35,7 @@ export default class LayoutInfoComponent extends LightningElement {
         }
     }
 
-    get infoList() {
+    get info() {
         for (let item of this.accountList) {
             if (item.Id === this.accountId) {
                 this.accountName = item.Name;
@@ -90,7 +87,7 @@ export default class LayoutInfoComponent extends LightningElement {
             <p>Your ${this.orderName} has been received.</p>
             <p>Payment Due date : ${this.paymentDueDate}.</p>
             <p>Total Amount: ${this.totalAmount} $.</p>
-            <img src=${this.logo}/>
+            <img src=https://examforjetbi-dev-ed--c.documentforce.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0685j000003LMLR&operationContext=DELIVERY&contentId=05T5j000009UABq&page=0&d=/a/5j000000gaeW/zPAW3qXOFvkWDQM_PB.T70EfWSMKG__7nMRjLOzUSt8&oid=00D5j0000017IaR&dpt=null&viewId=>
             `
         const emailTemplate = {body: body, subject: subject, userId: Id}
         sendEmailWithOrderInfo(emailTemplate).then( () => {
@@ -101,5 +98,4 @@ export default class LayoutInfoComponent extends LightningElement {
         });
         }
     }
-
 }

@@ -1,12 +1,12 @@
 public class AccountFactory {
     
-	static final String NAME1 = 'Test Harry';
-    static final String NAME2 = 'Test Amelia';
-    static final String NAME3 = 'Test Jack';
-    static final String NAME4 = 'Test Lily';
-    static final String NAME5 = 'Test Isabella';
-    static final String NAME6 = 'Test Jacob';
-    static final String NAME7 = 'Test William';
+	@TestVisible private static final String NAME1 = 'Test Harry';
+    @TestVisible private static final String NAME2 = 'Test Amelia';
+    @TestVisible private static final String NAME3 = 'Test Jack';
+    @TestVisible private static final String NAME4 = 'Test Lily';
+    @TestVisible private static final String NAME5 = 'Test Isabella';
+    @TestVisible private static final String NAME6 = 'Test Jacob';
+    @TestVisible private static final String NAME7 = 'Test William';
     
     public static void createAccounts(Integer count){
 
@@ -21,7 +21,7 @@ public class AccountFactory {
         insert(accounts);
     }
     
-    private static String generateRandomName(){
+    @TestVisible private static String generateRandomName(){
 
         Integer random = (Integer)(Math.random()*7.0);
         String result; 

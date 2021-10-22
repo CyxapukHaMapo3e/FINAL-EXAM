@@ -9,9 +9,8 @@ public with sharing class AccountController {
             if(!(acc.Orders__r.isEmpty())){
                 accountList.add(acc);
             }
-        }   
-        
+        }          
         return accountList;
-    } 
-
+    }
+     
 }
