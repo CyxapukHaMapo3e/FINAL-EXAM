@@ -17,13 +17,11 @@ private class SendEmailControllerTest {
     @isTest static void sendEmailWithOrderInfoNegativeTest(){
         Id negativeUserId;
         String exceptionMessage;
-		Test.startTest();
 		try{
             SendEmailController.sendEmailWithOrderInfo(body, subject, negativeUserId);
         }catch (Exception exe){
          	exceptionMessage = 'An email should not be sent';
         }
-        Test.stopTest();
         System.assertEquals(exceptionMessage, 'An email should not be sent');
     }
 }
