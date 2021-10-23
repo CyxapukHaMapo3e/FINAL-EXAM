@@ -2,10 +2,11 @@
 private class AccountFactoryTest {
 	
     @isTest static void createAccountsTest(){
-        List<Account> before = [SELECT ID FROM Account];
-        AccountFactory.createAccounts(1);
-        List<Account> after = [SELECT ID FROM Account];
-        System.assert(after.size()>before.size());
+        Test.startTest();
+    	AccountFactory.createAccounts(1);
+    	Integer countDML = Limits.getDMLStatements();
+		Test.stopTest();
+		System.assertEquals(1, countDML);
     }
     
     @isTest static void generateRandomNameTest(){

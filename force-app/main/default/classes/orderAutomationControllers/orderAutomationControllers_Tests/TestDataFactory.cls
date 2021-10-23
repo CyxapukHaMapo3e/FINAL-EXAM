@@ -16,8 +16,7 @@ public class TestDataFactory {
         ord.Name = 'Order';
         ord.Total_Amount__c = (Integer)(Math.random()*1000);
         ord.Payment_Due_date__c = Date.today();
-        if(doInsert)
-        {
+        if(doInsert){
             insert ord;
         }
         return ord;
