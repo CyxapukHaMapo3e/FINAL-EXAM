@@ -32,13 +32,14 @@ export default class OrderPicklistComponent extends LightningElement {
 
     handleNext(event){
         event.preventDefault();
-        const eventNext = new CustomEvent('next', {
+        const detail = {
             detail: {
                 showOrder     : false,
                 showAccount     : false,
                 showInfo : true,
-            }
-        });
+            }};
+        const eventNext = new CustomEvent('next', detail);
+        console.log('NEXT ORDER ---> INFO', detail)
         this.dispatchEvent(eventNext);
     }
 

@@ -14,14 +14,7 @@ export default class OrderAutomationApp extends LightningElement {
     showAccount = true;
     showOrder = false;
     showInfo = false;
-
-    stepValues = [
-        {label : 'Account',     value: 'Account'},
-        {label : 'Order',       value: 'Order'},
-        {label : 'Info',        value: 'Info'},
-    ]
     
-
     @wire(getAccounts)
     wiredAccounts({ error, data }) {
         if (data) {
@@ -75,6 +68,8 @@ export default class OrderAutomationApp extends LightningElement {
         this.showOrder = event.detail.showOrder;
         this.showInfo = event.detail.showInfo;
 
+        console.log(this.currentStep)
+
         if(this.showAccount){
             this.currentStep = 'Account';
         }else if(this.showOrder){
@@ -82,5 +77,6 @@ export default class OrderAutomationApp extends LightningElement {
         }else if(this.showInfo){
             this.currentStep = 'Info';
         }
+        console.log(this.currentStep)
     }
 }
