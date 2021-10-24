@@ -68,7 +68,6 @@ export default class OrderAutomationApp extends LightningElement {
         this.showOrder = event.detail.showOrder;
         this.showInfo = event.detail.showInfo;
 
-        console.log(this.currentStep)
 
         if(this.showAccount){
             this.currentStep = 'Account';
@@ -77,6 +76,6 @@ export default class OrderAutomationApp extends LightningElement {
         }else if(this.showInfo){
             this.currentStep = 'Info';
         }
-        console.log(this.currentStep)
+        
     }
 }
