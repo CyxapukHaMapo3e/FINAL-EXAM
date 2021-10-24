@@ -75,7 +75,6 @@ export default class OrderAutomationApp extends LightningElement {
             this.currentStep = 'Order';
         }else if(this.showInfo){
             this.currentStep = 'Info';
-        }
-        
+        }        
     }
 }
